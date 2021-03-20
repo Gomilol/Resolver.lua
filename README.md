@@ -5,3 +5,9 @@ Resolver for skeet. Made by Gomi and xSovietDoggo (he helped with angles but not
 
 
 * Also, I didn't attempt to grab IP's with this. I grab HTTP a total of 2 or 3 times. Anyone that says that is stupid and can't read simple lua. **cough cough bassn**
+
+
+
+Things to add:
+
+* Make a logic resolver by grabbing delta and what ever that delta is invert that and you should have there real angle.
