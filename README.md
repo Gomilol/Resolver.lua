@@ -1,5 +1,5 @@
 # Resolver.lua
-Resolver for skeet. Made by Gomi and xSovietDoggo (he helped with angles but nothing else like pasting shit from fourms)
+Resolver for skeet. Made by Gomi, Warped and xSovietDoggo (he helped with angles but nothing else like pasting shit from fourms)
 
 * This was NOT PAID. This was gave out to friends and a place holder for other fourm scripts, and shit I found cool.
 
