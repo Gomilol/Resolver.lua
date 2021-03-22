@@ -1,5 +1,6 @@
 # Resolver.lua
 Resolver for skeet. Made by Gomi, Warped and xSovietDoggo (he helped with angles but nothing else like pasting shit from fourms)
+### Info
 
 * This was NOT PAID. This was gave out to friends and a place holder for other fourm scripts, and shit I found cool.
 
@@ -8,6 +9,6 @@ Resolver for skeet. Made by Gomi, Warped and xSovietDoggo (he helped with angles
 
 
 
-Things to add:
+### Things to add:
 
 * Make a logic resolver by grabbing delta and what ever that delta is invert that and you should have there real angle.
