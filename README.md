@@ -12,3 +12,8 @@ Resolver for skeet. Made by Gomi, Warped and xSovietDoggo (he helped with angles
 ### Things to add:
 
 * Make a logic resolver by grabbing delta and what ever that delta is invert that and you should have there real angle.
+
+
+### Note:
+
+* This has 0 logic meaning it's fucking dogshit. I would just recommend using the default skeet resolver.
