@@ -42,13 +42,7 @@ local switch1 = false
 local switch2 = false
 local i = 1
 local screenX, screenY = client.screen_size()
-local Discord = require('gamesense/discord_webhooks')
-local Webhook = Discord.new('') -- add yo dumbass fucking webhook idiot
-local RichEmbed = Discord.newEmbed()
-local RichEmbed2 = Discord.newEmbed()
 local local_player = entity.get_local_player
-local steamworks = require "gamesense/steamworks"
-local ISteamFriends = steamworks.ISteamFriends
 local js = panorama["open"]()
 local MyPersonaAPI, LobbyAPI, PartyListAPI, FriendsListAPI, GameStateAPI =
     js["MyPersonaAPI"],
@@ -56,9 +50,7 @@ local MyPersonaAPI, LobbyAPI, PartyListAPI, FriendsListAPI, GameStateAPI =
     js["PartyListAPI"],
     js["FriendsListAPI"],
     js["GameStateAPI"]
-local EPersonaState = steamworks.EPersonaState
-local ISteamMatchmakingServers = steamworks.ISteamMatchmakingServers
-local ISteamMatchmaking = steamworks.ISteamMatchmaking
+
 local SteamID = panorama.open().MyPersonaAPI.GetXuid() -- grabs steamID (probably a better way of grabbing it, but i couldn't find one.)
 local tickrate = 1/globals.tickinterval()
 local function draw_background(x, y, w, h, color1, color2, color3)
@@ -143,7 +135,6 @@ end
 local screen = {client.screen_size()}
 local center = {screen[1]/2, screen[2]/2}
 local wtf = entity.get_steam64
-local https = require('gamesense/http')
 local function print_chat(text)
 	print_to_chat(hudchat, 0, 0, text)
 end
@@ -292,23 +283,6 @@ local RefreshDelay = 5
 if globals.curtime() < RefreshDelay then return end
 RefreshDelay = globals.curtime() + 5
 
-Webhook:setUsername('nigga nuts :x:') -- sets the webhook usrname
-Webhook:setAvatarURL('https://media.discordapp.net/attachments/795662733659602995/795664388434165770/image0.gif') -- profile of the webhook
-
-RichEmbed:setTitle('User Loaded Script!') -- Bold title at the first line of webhook
-RichEmbed:setThumbnail('https://cdn.discordapp.com/icons/559473817370492953/a_e1b09e0551714de7722cdd0966cd7620.gif?size=128') -- gif on the side.
-RichEmbed:setColor(11393254) -- da green cuh
-RichEmbed:addField('SteamID', SteamID, true) -- eh is the function for getting SteamID.
-RichEmbed:addField ('In-Game Name', ISteamFriends.GetPersonaName(), true) 
-RichEmbed:addField ('System OS ', ffi.os, true)
--- RichEmbed:addField ('Time ', client.system_time(), true)
--- only returns minute lmfao...
-if GameStateAPI.IsConnectedOrConnectingToServer() == true then
-RichEmbed:addField ("In-Game ", GameStateAPI.IsConnectedOrConnectingToServer())
-end
-
-Webhook:send(RichEmbed) -- sends webhook/the rich embed.
-
 
 -- cool spooky webhook thingy (wouldnt recommend touching...)
 
@@ -388,30 +362,8 @@ end
 end)
 
 
--- begining of warped indicators (doesnt scale 4 dpi bc im lazy as shit and me and warped forgot abt that lmfao)
 
-local ss = {};ss.x, ss.y = client.screen_size()
-local Paths = {};Paths.DT, Paths.DTT = ui.reference("RAGE", "Other", "Double tap");Paths.HS, Paths.HST = ui.reference("AA", "Other",  "On shot anti-aim")
-local MaxChoked = 1
-client.set_event_callback("paint", function()
-  if ui.get(Paths.DTT) then
-    renderer.text(ss.x/2, ss.y/1.92, 0, 255, 0, 255, "-cd", 0, "DT")
-  else
-    renderer.text(ss.x/2, ss.y/1.92, 255, 0, 0, 255, "-cd", 0, "DT")
-  end
-  if ui.get(Paths.HST) then
-    renderer.text(ss.x/2, ss.y/1.90, 0, 255, 0, 255, "-cd", 0, "HS")
-  else
-    renderer.text(ss.x/2, ss.y/1.90, 255, 0, 0, 255, "-cd", 0, "HS")
-  end
-  --/ Setting Max Choked (Arc goes MaxChoked/Current Choked / 1)
-  if MaxChoked < globals.chokedcommands() then
-    MaxChoked = globals.chokedcommands()
-  end
-  local current = MaxChoked/globals.chokedcommands()
-  renderer.circle_outline(ss.x/2, ss.y/1.86, 255, 0, 0, 255, 3, 360, 1, 1.5)
-  renderer.circle_outline(ss.x/2, ss.y/1.86, 0, 255, 0, 255, 3, 360, 1/current, 1.5)
-end)
+
 
 
 -- begining of Update log.
@@ -425,7 +377,6 @@ end
   
 
 
-local http = require "gamesense/http"
 local http_libary =
     '{ ["patch"] = function: NULL,["options"] = function: NULL,["request"] = function: NULL,["put"] = function: NULL,["head"] = function: NULL,["delete"] = function: NULL,["post"] = function: NULL,["create_cookie_container"] = function: NULL,["get"] = function: NULL,} '
 local check = 0
