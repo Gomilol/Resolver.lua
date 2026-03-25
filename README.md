@@ -16,4 +16,3 @@ Resolver for skeet. Made by Gomi, Warped and xSovietDoggo (he helped with angles
 
 ### Note:
 
-* This has 0 logic meaning it's fucking dogshit. I would just recommend using the default skeet resolver.
